@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini App من</title>
+
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 40px 20px;
+            background: #f2f2f2;
+        }
+
+        .box {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            max-width: 400px;
+            margin: auto;
+        }
+
+        button {
+            border: none;
+            padding: 15px 30px;
+            border-radius: 12px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+    <h1>🤖 مینی اپ من</h1>
+    <p>به برنامه خوش آمدید</p>
+
+    <button onclick="hello()">ورود به برنامه</button>
+
+    <p id="result"></p>
+</div>
+
+<script>
+    const tg = window.Telegram.WebApp;
+
+    tg.ready();
+    tg.expand();
+
+    function hello() {
+        document.getElementById("result").innerText =
+            "سلام " + (tg.initDataUnsafe.user?.first_name || "دوست من") + " 👋";
+    }
+</script>
+
+</body>
+</html>
