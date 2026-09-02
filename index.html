@@ -319,7 +319,6 @@
     <p>خرید و مدیریت سرویس VPN</p>
   </div>
 
-
   <!-- HOME -->
 
   <div id="home" class="screen active">
@@ -369,7 +368,6 @@
 
   </div>
 
-
   <!-- BUY -->
 
   <div id="buy" class="screen">
@@ -380,14 +378,12 @@
 
     <h2 class="section-title">🛒 خرید اشتراک</h2>
 
-
     <div class="card">
       <h2>👤 نامحدود کاربر</h2>
       <p>
         سرویس یک ماهه با امکان استفاده بدون محدودیت تعداد کاربر
       </p>
     </div>
-
 
     <div class="plan" onclick="selectPlan('نامحدود کاربر - 30 گیگ', 150000)">
       <div class="plan-top">
@@ -397,7 +393,6 @@
       <div class="plan-info">مدت: 1 ماه</div>
     </div>
 
-
     <div class="plan" onclick="selectPlan('نامحدود کاربر - 40 گیگ', 190000)">
       <div class="plan-top">
         <div class="plan-title">40 گیگ</div>
@@ -405,7 +400,6 @@
       </div>
       <div class="plan-info">مدت: 1 ماه</div>
     </div>
-
 
     <div class="plan" onclick="selectPlan('نامحدود کاربر - 50 گیگ', 230000)">
       <div class="plan-top">
@@ -415,7 +409,6 @@
       <div class="plan-info">مدت: 1 ماه</div>
     </div>
 
-
     <div class="plan" onclick="selectPlan('نامحدود کاربر - 60 گیگ', 270000)">
       <div class="plan-top">
         <div class="plan-title">60 گیگ</div>
@@ -424,14 +417,12 @@
       <div class="plan-info">مدت: 1 ماه</div>
     </div>
 
-
     <div class="card">
       <h2>⚙️ سرویس</h2>
       <p>
         سرویس‌های یک ماهه با حجم‌های مختلف
       </p>
     </div>
-
 
     <div class="plan" onclick="selectPlan('سرویس - 30 گیگ', 100000)">
       <div class="plan-top">
@@ -441,7 +432,6 @@
       <div class="plan-info">مدت: 1 ماه</div>
     </div>
 
-
     <div class="plan" onclick="selectPlan('سرویس - 40 گیگ', 140000)">
       <div class="plan-top">
         <div class="plan-title">40 گیگ</div>
@@ -449,7 +439,6 @@
       </div>
       <div class="plan-info">مدت: 1 ماه</div>
     </div>
-
 
     <div class="plan" onclick="selectPlan('سرویس - 50 گیگ', 180000)">
       <div class="plan-top">
@@ -459,7 +448,6 @@
       <div class="plan-info">مدت: 1 ماه</div>
     </div>
 
-
     <div class="plan" onclick="selectPlan('سرویس - 60 گیگ', 220000)">
       <div class="plan-top">
         <div class="plan-title">60 گیگ</div>
@@ -467,7 +455,6 @@
       </div>
       <div class="plan-info">مدت: 1 ماه</div>
     </div>
-
 
     <div class="plan" onclick="selectPlan('سرویس - نامحدود', 350000)">
       <div class="plan-top">
@@ -477,14 +464,12 @@
       <div class="plan-info">مدت: 1 ماه</div>
     </div>
 
-
     <div class="card">
       <h2>♾️ حجمی</h2>
       <p>
         حجم مشخص با زمان استفاده نامحدود
       </p>
     </div>
-
 
     <div class="plan" onclick="selectPlan('حجمی - 50 گیگ', 220000)">
       <div class="plan-top">
@@ -493,7 +478,6 @@
       </div>
       <div class="plan-info">زمان: نامحدود</div>
     </div>
-
 
     <div class="plan" onclick="selectPlan('حجمی - 60 گیگ', 280000)">
       <div class="plan-top">
@@ -504,7 +488,6 @@
     </div>
 
   </div>
-
 
   <!-- PAYMENT -->
 
@@ -540,35 +523,29 @@
 
     </div>
 
-
     <div class="warning">
       ⚠️ لطفاً دقیقاً مبلغ نمایش داده شده را به شماره کارت بالا انتقال دهید.
       <br>
       سپس تصویر رسید پرداخت را برای ربات ارسال کنید.
     </div>
 
-
     <div class="success">
       ✅ بعد از تأیید پرداخت توسط مدیریت، سرویس شما ساخته شده و اطلاعات آن برای شما ارسال می‌شود.
     </div>
 
-
     <button class="primary-btn" onclick="sendReceipt()">
-      📤 ادامه در ربات و ارسال رسید
+      📤 ارسال اطلاعات سفارش
     </button>
-
 
     <button class="secondary-btn" onclick="showScreen('buy')">
       انتخاب سرویس دیگر
     </button>
-
 
     <p class="small">
       ربات: @novavppnbot
     </p>
 
   </div>
-
 
   <!-- SERVICES -->
 
@@ -600,7 +577,6 @@
 
   </div>
 
-
   <!-- WALLET -->
 
   <div id="wallet" class="screen">
@@ -631,7 +607,6 @@
 
   </div>
 
-
   <!-- TEST -->
 
   <div id="test" class="screen">
@@ -658,7 +633,6 @@
     </div>
 
   </div>
-
 
   <!-- RENEW -->
 
@@ -690,7 +664,6 @@
     </div>
 
   </div>
-
 
   <!-- EDUCATION -->
 
@@ -724,217 +697,250 @@
 
 <script>
 
-  /* ================= TELEGRAM ================= */
+/* ================= TELEGRAM ================= */
 
-  const tg =
-    window.Telegram && window.Telegram.WebApp
-      ? window.Telegram.WebApp
-      : null;
+const tg =
+  window.Telegram && window.Telegram.WebApp
+    ? window.Telegram.WebApp
+    : null;
 
 
-  if (tg) {
+if (tg) {
 
-    tg.ready();
+  tg.ready();
+  tg.expand();
 
-    tg.expand();
+  try {
+    tg.setHeaderColor("#0f172a");
+    tg.setBackgroundColor("#0f172a");
+  } catch (e) {}
 
-    try {
-      tg.setHeaderColor("#0f172a");
-      tg.setBackgroundColor("#0f172a");
-    } catch (e) {}
+}
 
+
+/* ================= BOT ================= */
+
+const BOT_USERNAME = "novavppnbot";
+
+
+/* ================= CARD ================= */
+
+const CARD_NUMBER = "6037997258617217";
+
+
+/* ================= SELECTED PLAN ================= */
+
+let selectedPlan = "";
+let selectedPrice = 0;
+
+
+/* ================= SCREEN ================= */
+
+function showScreen(screenId) {
+
+  document.querySelectorAll(".screen").forEach(function(screen) {
+    screen.classList.remove("active");
+  });
+
+  const target = document.getElementById(screenId);
+
+  if (target) {
+    target.classList.add("active");
+    window.scrollTo(0, 0);
   }
 
+}
 
-  /* ================= BOT ================= */
 
-  const BOT_USERNAME = "novavppnbot";
+/* ================= SELECT PLAN ================= */
 
+function selectPlan(name, price) {
 
-  /* ================= CARD ================= */
+  selectedPlan = name;
+  selectedPrice = price;
 
-  const CARD_NUMBER = "6037997258617217";
+  document.getElementById("selectedPlan").innerHTML =
+    "<p><b>سرویس انتخاب شده:</b><br>" +
+    escapeHtml(name) +
+    "</p>";
 
+  document.getElementById("selectedPrice").innerText =
+    formatPrice(price) + " تومان";
 
-  /* ================= SELECTED PLAN ================= */
+  showScreen("payment");
 
-  let selectedPlan = "";
-  let selectedPrice = 0;
+}
 
 
-  /* ================= SCREEN ================= */
+/* ================= FORMAT PRICE ================= */
 
-  function showScreen(screenId) {
+function formatPrice(price) {
+  return Number(price).toLocaleString("fa-IR");
+}
 
-    document.querySelectorAll(".screen").forEach(function(screen) {
-      screen.classList.remove("active");
-    });
 
-    const target = document.getElementById(screenId);
+/* ================= ESCAPE HTML ================= */
 
-    if (target) {
-      target.classList.add("active");
-      window.scrollTo(0, 0);
-    }
+function escapeHtml(text) {
 
-  }
+  return String(text)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
 
+}
 
-  /* ================= SELECT PLAN ================= */
 
-  function selectPlan(name, price) {
+/* ================= COPY CARD ================= */
 
-    selectedPlan = name;
-    selectedPrice = price;
+function copyCard() {
 
-    document.getElementById("selectedPlan").innerHTML =
-      "<p><b>سرویس انتخاب شده:</b><br>" +
-      escapeHtml(name) +
-      "</p>";
+  if (navigator.clipboard) {
 
-    document.getElementById("selectedPrice").innerText =
-      formatPrice(price) + " تومان";
+    navigator.clipboard.writeText(CARD_NUMBER)
 
-    showScreen("payment");
+      .then(function() {
+        alert("شماره کارت کپی شد ✅");
+      })
 
-  }
-
-
-  /* ================= FORMAT PRICE ================= */
-
-  function formatPrice(price) {
-    return Number(price).toLocaleString("fa-IR");
-  }
-
-
-  /* ================= ESCAPE HTML ================= */
-
-  function escapeHtml(text) {
-
-    return String(text)
-      .replace(/&/g, "&amp;")
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;")
-      .replace(/"/g, "&quot;")
-      .replace(/'/g, "&#039;");
-
-  }
-
-
-  /* ================= COPY CARD ================= */
-
-  function copyCard() {
-
-    if (navigator.clipboard) {
-
-      navigator.clipboard.writeText(CARD_NUMBER)
-
-        .then(function() {
-          alert("شماره کارت کپی شد ✅");
-        })
-
-        .catch(function() {
-          alert("شماره کارت: " + CARD_NUMBER);
-        });
-
-    } else {
-
-      alert("شماره کارت: " + CARD_NUMBER);
-
-    }
-
-  }
-
-
-  /* ================= OPEN BOT ================= */
-
-  function openBot() {
-
-    const url = "https://t.me/" + BOT_USERNAME;
-
-    if (tg && tg.openTelegramLink) {
-
-      tg.openTelegramLink(url);
-
-    } else {
-
-      window.open(url, "_blank");
-
-    }
-
-  }
-
-
-  /* ================= SEND RECEIPT ================= */
-
-  function sendReceipt() {
-
-    if (!selectedPlan || !selectedPrice) {
-
-      alert("ابتدا یک سرویس انتخاب کنید.");
-
-      return;
-
-    }
-
-
-    /*
-      mBot خودش فرآیند خرید و دریافت رسید را انجام می‌دهد.
-      بنابراین به جای sendData، کاربر را به ربات برمی‌گردانیم.
-    */
-
-    const url = "https://t.me/" + BOT_USERNAME;
-
-
-    if (tg && tg.openTelegramLink) {
-
-      tg.openTelegramLink(url);
-
-    } else {
-
-      window.open(url, "_blank");
-
-    }
-
-  }
-
-
-  /* ================= SUPPORT ================= */
-
-  function openSupport() {
-    openBot();
-  }
-
-
-  /* ================= BACK BUTTON ================= */
-
-  if (tg) {
-
-    try {
-
-      tg.BackButton.show();
-
-      tg.BackButton.onClick(function() {
-
-        const activeScreen =
-          document.querySelector(".screen.active");
-
-
-        if (!activeScreen || activeScreen.id === "home") {
-
-          tg.close();
-
-        } else {
-
-          showScreen("home");
-
-        }
-
+      .catch(function() {
+        alert("شماره کارت: " + CARD_NUMBER);
       });
 
-    } catch (e) {}
+  } else {
+
+    alert("شماره کارت: " + CARD_NUMBER);
 
   }
+
+}
+
+
+/* ================= OPEN BOT ================= */
+
+function openBot() {
+
+  const url = "https://t.me/" + BOT_USERNAME;
+
+  if (tg && tg.openTelegramLink) {
+
+    tg.openTelegramLink(url);
+
+  } else {
+
+    window.open(url, "_blank");
+
+  }
+
+}
+
+
+/* ================= SEND WEB APP DATA ================= */
+
+function sendReceipt() {
+
+  if (!selectedPlan || !selectedPrice) {
+
+    alert("ابتدا یک سرویس انتخاب کنید.");
+
+    return;
+
+  }
+
+
+  const data = {
+
+    action: "test_web_app",
+
+    plan: selectedPlan,
+
+    price: selectedPrice,
+
+    currency: "IRR",
+
+    user_id:
+      tg &&
+      tg.initDataUnsafe &&
+      tg.initDataUnsafe.user
+        ? tg.initDataUnsafe.user.id
+        : null,
+
+    username:
+      tg &&
+      tg.initDataUnsafe &&
+      tg.initDataUnsafe.user
+        ? tg.initDataUnsafe.user.username || ""
+        : "",
+
+    first_name:
+      tg &&
+      tg.initDataUnsafe &&
+      tg.initDataUnsafe.user
+        ? tg.initDataUnsafe.user.first_name || ""
+        : ""
+
+  };
+
+
+  if (tg && tg.sendData) {
+
+    try {
+
+      tg.sendData(JSON.stringify(data));
+
+    } catch (e) {
+
+      alert("ارسال اطلاعات سفارش انجام نشد.");
+
+    }
+
+  } else {
+
+    alert("این Mini App باید از داخل تلگرام باز شود.");
+
+  }
+
+}
+
+
+/* ================= SUPPORT ================= */
+
+function openSupport() {
+  openBot();
+}
+
+
+/* ================= BACK BUTTON ================= */
+
+if (tg) {
+
+  try {
+
+    tg.BackButton.show();
+
+    tg.BackButton.onClick(function() {
+
+      const activeScreen =
+        document.querySelector(".screen.active");
+
+
+      if (!activeScreen || activeScreen.id === "home") {
+
+        tg.close();
+
+      } else {
+
+        showScreen("home");
+
+      }
+
+    });
+
+  } catch (e) {}
+
+}
 
 </script>
 
