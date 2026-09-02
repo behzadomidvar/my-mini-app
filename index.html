@@ -319,7 +319,9 @@
     <p>خرید و مدیریت سرویس VPN</p>
   </div>
 
+
   <!-- HOME -->
+
   <div id="home" class="screen active">
 
     <div class="menu-grid">
@@ -369,6 +371,7 @@
 
 
   <!-- BUY -->
+
   <div id="buy" class="screen">
 
     <button class="back" onclick="showScreen('home')">
@@ -377,12 +380,14 @@
 
     <h2 class="section-title">🛒 خرید اشتراک</h2>
 
+
     <div class="card">
       <h2>👤 نامحدود کاربر</h2>
       <p>
         سرویس یک ماهه با امکان استفاده بدون محدودیت تعداد کاربر
       </p>
     </div>
+
 
     <div class="plan" onclick="selectPlan('نامحدود کاربر - 30 گیگ', 150000)">
       <div class="plan-top">
@@ -392,6 +397,7 @@
       <div class="plan-info">مدت: 1 ماه</div>
     </div>
 
+
     <div class="plan" onclick="selectPlan('نامحدود کاربر - 40 گیگ', 190000)">
       <div class="plan-top">
         <div class="plan-title">40 گیگ</div>
@@ -400,6 +406,7 @@
       <div class="plan-info">مدت: 1 ماه</div>
     </div>
 
+
     <div class="plan" onclick="selectPlan('نامحدود کاربر - 50 گیگ', 230000)">
       <div class="plan-top">
         <div class="plan-title">50 گیگ</div>
@@ -407,6 +414,7 @@
       </div>
       <div class="plan-info">مدت: 1 ماه</div>
     </div>
+
 
     <div class="plan" onclick="selectPlan('نامحدود کاربر - 60 گیگ', 270000)">
       <div class="plan-top">
@@ -424,6 +432,7 @@
       </p>
     </div>
 
+
     <div class="plan" onclick="selectPlan('سرویس - 30 گیگ', 100000)">
       <div class="plan-top">
         <div class="plan-title">30 گیگ</div>
@@ -431,6 +440,7 @@
       </div>
       <div class="plan-info">مدت: 1 ماه</div>
     </div>
+
 
     <div class="plan" onclick="selectPlan('سرویس - 40 گیگ', 140000)">
       <div class="plan-top">
@@ -440,6 +450,7 @@
       <div class="plan-info">مدت: 1 ماه</div>
     </div>
 
+
     <div class="plan" onclick="selectPlan('سرویس - 50 گیگ', 180000)">
       <div class="plan-top">
         <div class="plan-title">50 گیگ</div>
@@ -448,6 +459,7 @@
       <div class="plan-info">مدت: 1 ماه</div>
     </div>
 
+
     <div class="plan" onclick="selectPlan('سرویس - 60 گیگ', 220000)">
       <div class="plan-top">
         <div class="plan-title">60 گیگ</div>
@@ -455,6 +467,7 @@
       </div>
       <div class="plan-info">مدت: 1 ماه</div>
     </div>
+
 
     <div class="plan" onclick="selectPlan('سرویس - نامحدود', 350000)">
       <div class="plan-top">
@@ -472,6 +485,7 @@
       </p>
     </div>
 
+
     <div class="plan" onclick="selectPlan('حجمی - 50 گیگ', 220000)">
       <div class="plan-top">
         <div class="plan-title">50 گیگ</div>
@@ -479,6 +493,7 @@
       </div>
       <div class="plan-info">زمان: نامحدود</div>
     </div>
+
 
     <div class="plan" onclick="selectPlan('حجمی - 60 گیگ', 280000)">
       <div class="plan-top">
@@ -492,6 +507,7 @@
 
 
   <!-- PAYMENT -->
+
   <div id="payment" class="screen">
 
     <button class="back" onclick="showScreen('buy')">
@@ -524,23 +540,28 @@
 
     </div>
 
+
     <div class="warning">
       ⚠️ لطفاً دقیقاً مبلغ نمایش داده شده را به شماره کارت بالا انتقال دهید.
       <br>
       سپس تصویر رسید پرداخت را برای ربات ارسال کنید.
     </div>
 
+
     <div class="success">
       ✅ بعد از تأیید پرداخت توسط مدیریت، سرویس شما ساخته شده و اطلاعات آن برای شما ارسال می‌شود.
     </div>
 
+
     <button class="primary-btn" onclick="sendReceipt()">
-      📤 ارسال رسید به ربات
+      📤 ادامه در ربات و ارسال رسید
     </button>
+
 
     <button class="secondary-btn" onclick="showScreen('buy')">
       انتخاب سرویس دیگر
     </button>
+
 
     <p class="small">
       ربات: @novavppnbot
@@ -550,6 +571,7 @@
 
 
   <!-- SERVICES -->
+
   <div id="services" class="screen">
 
     <button class="back" onclick="showScreen('home')">
@@ -559,12 +581,17 @@
     <h2 class="section-title">📦 سرویس‌های من</h2>
 
     <div class="card">
+
       <div class="empty">
+
         <div class="empty-icon">📦</div>
+
         <div>
           برای مشاهده سرویس‌های فعال، از ربات استفاده کنید.
         </div>
+
       </div>
+
     </div>
 
     <button class="primary-btn" onclick="openBot()">
@@ -575,6 +602,7 @@
 
 
   <!-- WALLET -->
+
   <div id="wallet" class="screen">
 
     <button class="back" onclick="showScreen('home')">
@@ -584,12 +612,17 @@
     <h2 class="section-title">💰 کیف پول</h2>
 
     <div class="card">
+
       <div class="empty">
+
         <div class="empty-icon">💰</div>
+
         <div>
           برای مشاهده موجودی کیف پول، وارد ربات شوید.
         </div>
+
       </div>
+
     </div>
 
     <button class="primary-btn" onclick="openBot()">
@@ -600,6 +633,7 @@
 
 
   <!-- TEST -->
+
   <div id="test" class="screen">
 
     <button class="back" onclick="showScreen('home')">
@@ -627,6 +661,7 @@
 
 
   <!-- RENEW -->
+
   <div id="renew" class="screen">
 
     <button class="back" onclick="showScreen('home')">
@@ -658,6 +693,7 @@
 
 
   <!-- EDUCATION -->
+
   <div id="education" class="screen">
 
     <button class="back" onclick="showScreen('home')">
@@ -694,6 +730,7 @@
     window.Telegram && window.Telegram.WebApp
       ? window.Telegram.WebApp
       : null;
+
 
   if (tg) {
 
@@ -816,42 +853,46 @@
     const url = "https://t.me/" + BOT_USERNAME;
 
     if (tg && tg.openTelegramLink) {
+
       tg.openTelegramLink(url);
+
     } else {
+
       window.open(url, "_blank");
+
     }
 
   }
 
 
-  /* ================= SEND PAYMENT DATA ================= */
+  /* ================= SEND RECEIPT ================= */
 
   function sendReceipt() {
 
     if (!selectedPlan || !selectedPrice) {
+
       alert("ابتدا یک سرویس انتخاب کنید.");
+
       return;
+
     }
 
+
     /*
-      اطلاعات خرید به ربات ارسال می‌شود.
-      ربات باید در سمت سرور این داده را دریافت کند.
+      mBot خودش فرآیند خرید و دریافت رسید را انجام می‌دهد.
+      بنابراین به جای sendData، کاربر را به ربات برمی‌گردانیم.
     */
 
-    const paymentData = {
-      action: "payment",
-      plan: selectedPlan,
-      price: selectedPrice,
-      currency: "IRR"
-    };
+    const url = "https://t.me/" + BOT_USERNAME;
 
-    if (tg && tg.sendData) {
 
-      tg.sendData(JSON.stringify(paymentData));
+    if (tg && tg.openTelegramLink) {
+
+      tg.openTelegramLink(url);
 
     } else {
 
-      alert("این قسمت باید داخل تلگرام اجرا شود.");
+      window.open(url, "_blank");
 
     }
 
@@ -878,10 +919,15 @@
         const activeScreen =
           document.querySelector(".screen.active");
 
+
         if (!activeScreen || activeScreen.id === "home") {
+
           tg.close();
+
         } else {
+
           showScreen("home");
+
         }
 
       });
