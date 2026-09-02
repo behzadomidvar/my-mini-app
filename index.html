@@ -28,20 +28,20 @@
 
         .header {
             text-align: center;
-            padding: 20px 10px;
+            padding: 15px 10px 20px;
         }
 
         .logo {
-            font-size: 55px;
+            font-size: 50px;
         }
 
         h1 {
-            margin: 10px 0 5px;
-            font-size: 25px;
+            margin: 8px 0;
+            font-size: 24px;
         }
 
         .welcome {
-            opacity: 0.7;
+            opacity: 0.65;
             font-size: 14px;
         }
 
@@ -49,31 +49,115 @@
             display: flex;
             flex-direction: column;
             gap: 12px;
-            margin-top: 15px;
+        }
+
+        .menu-button,
+        .category-card,
+        .plan-card {
+            width: 100%;
+            border: none;
+            border-radius: 18px;
+            background: var(--tg-theme-secondary-bg-color);
+            color: var(--tg-theme-text-color);
+            cursor: pointer;
         }
 
         .menu-button {
-            width: 100%;
             padding: 18px;
-            border: none;
-            border-radius: 16px;
-            background: var(--tg-theme-secondary-bg-color);
-            color: var(--tg-theme-text-color);
             font-size: 17px;
             font-weight: bold;
             text-align: right;
-            cursor: pointer;
-            transition: transform 0.1s;
         }
 
-        .menu-button:active {
-            transform: scale(0.97);
+        .menu-button:active,
+        .category-card:active,
+        .plan-card:active {
+            transform: scale(0.98);
         }
 
         .emoji {
             font-size: 24px;
             margin-left: 10px;
             vertical-align: middle;
+        }
+
+        .screen {
+            display: none;
+        }
+
+        .screen.active {
+            display: block;
+        }
+
+        .back {
+            border: none;
+            background: transparent;
+            color: var(--tg-theme-link-color);
+            font-size: 16px;
+            padding: 5px 0 15px;
+            cursor: pointer;
+        }
+
+        .section-title {
+            text-align: center;
+            margin: 5px 0 20px;
+            font-size: 21px;
+        }
+
+        .cards {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .category-card {
+            padding: 20px;
+            text-align: right;
+        }
+
+        .category-icon {
+            font-size: 35px;
+            float: right;
+            margin-left: 15px;
+        }
+
+        .category-name {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .category-info {
+            opacity: 0.65;
+            font-size: 13px;
+        }
+
+        .plan-card {
+            padding: 18px;
+            text-align: right;
+        }
+
+        .plan-name {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .plan-price {
+            margin-top: 8px;
+            font-size: 17px;
+        }
+
+        .buy-button {
+            margin-top: 14px;
+            width: 100%;
+            border: none;
+            border-radius: 12px;
+            padding: 13px;
+            font-size: 16px;
+            font-weight: bold;
+            background: var(--tg-theme-button-color);
+            color: var(--tg-theme-button-text-color);
+            cursor: pointer;
         }
 
         .footer {
@@ -89,60 +173,138 @@
 
 <div class="container">
 
-    <div class="header">
-        <div class="logo">🔐</div>
+    <!-- صفحه اصلی -->
+    <div id="home" class="screen active">
 
-        <h1>فروشگاه Nova VPN</h1>
+        <div class="header">
+            <div class="logo">🔐</div>
 
-        <div class="welcome" id="welcome">
-            خوش آمدید 👋
+            <h1>فروشگاه VPN</h1>
+
+            <div class="welcome" id="welcome">
+                خوش آمدید 👋
+            </div>
         </div>
+
+        <div class="menu">
+
+            <button class="menu-button" onclick="showCategories()">
+                <span class="emoji">🛒</span>
+                خرید اشتراک
+            </button>
+
+            <button class="menu-button" onclick="comingSoon()">
+                <span class="emoji">📦</span>
+                سرویس‌های من
+            </button>
+
+            <button class="menu-button" onclick="comingSoon()">
+                <span class="emoji">💰</span>
+                کیف پول
+            </button>
+
+            <button class="menu-button" onclick="comingSoon()">
+                <span class="emoji">🔑</span>
+                اکانت تست
+            </button>
+
+            <button class="menu-button" onclick="comingSoon()">
+                <span class="emoji">🔄</span>
+                تمدید سرویس
+            </button>
+
+            <button class="menu-button" onclick="comingSoon()">
+                <span class="emoji">🎓</span>
+                آموزش
+            </button>
+
+            <button class="menu-button" onclick="comingSoon()">
+                <span class="emoji">💬</span>
+                پشتیبانی
+            </button>
+
+        </div>
+
+        <div class="footer">
+            فروش امن و سریع سرویس VPN
+        </div>
+
     </div>
 
-    <div class="menu">
 
-        <button class="menu-button" onclick="openSection('buy')">
-            <span class="emoji">🛒</span>
-            خرید اشتراک
+    <!-- دسته بندی اشتراک ها -->
+    <div id="categories" class="screen">
+
+        <button class="back" onclick="showHome()">
+            ← بازگشت
         </button>
 
-        <button class="menu-button" onclick="openSection('services')">
-            <span class="emoji">📦</span>
-            سرویس‌های من
-        </button>
+        <h2 class="section-title">
+            🛒 خرید اشتراک
+        </h2>
 
-        <button class="menu-button" onclick="openSection('wallet')">
-            <span class="emoji">💰</span>
-            کیف پول
-        </button>
+        <div class="cards">
 
-        <button class="menu-button" onclick="openSection('test')">
-            <span class="emoji">🔑</span>
-            اکانت تست
-        </button>
+            <button class="category-card" onclick="showPlans('user')">
+                <span class="category-icon">👤</span>
 
-        <button class="menu-button" onclick="openSection('renew')">
-            <span class="emoji">🔄</span>
-            تمدید سرویس
-        </button>
+                <div class="category-name">
+                    نامحدود کاربر
+                </div>
 
-        <button class="menu-button" onclick="openSection('tutorial')">
-            <span class="emoji">🎓</span>
-            آموزش
-        </button>
+                <div class="category-info">
+                    اشتراک ۱ ماهه
+                </div>
+            </button>
 
-        <button class="menu-button" onclick="openSection('support')">
-            <span class="emoji">💬</span>
-            پشتیبانی
-        </button>
+
+            <button class="category-card" onclick="showPlans('service')">
+                <span class="category-icon">⚙️</span>
+
+                <div class="category-name">
+                    سرویس
+                </div>
+
+                <div class="category-info">
+                    اشتراک ۱ ماهه
+                </div>
+            </button>
+
+
+            <button class="category-card" onclick="showPlans('volume')">
+                <span class="category-icon">♾️</span>
+
+                <div class="category-name">
+                    حجمی
+                </div>
+
+                <div class="category-info">
+                    نامحدود زمانی
+                </div>
+            </button>
+
+        </div>
 
     </div>
 
-    <div class="footer">
-        فروش امن و سریع سرویس VPN
+
+    <!-- پلن ها -->
+    <div id="plans" class="screen">
+
+        <button class="back" onclick="showCategories()">
+            ← بازگشت
+        </button>
+
+        <h2 class="section-title" id="plansTitle">
+            اشتراک‌ها
+        </h2>
+
+        <div class="cards" id="plansList"></div>
+
     </div>
 
 </div>
+
 
 <script>
 
@@ -151,7 +313,8 @@
     tg.ready();
     tg.expand();
 
-    // نمایش نام کاربر تلگرام
+
+    // نام کاربر تلگرام
     const user = tg.initDataUnsafe?.user;
 
     if (user) {
@@ -159,9 +322,122 @@
             "سلام " + (user.first_name || "دوست من") + " 👋";
     }
 
-    function openSection(section) {
 
-        tg.showAlert("این بخش به‌زودی فعال می‌شود 🚀");
+    function hideAll() {
+        document.querySelectorAll(".screen").forEach(screen => {
+            screen.classList.remove("active");
+        });
+    }
+
+
+    function showHome() {
+        hideAll();
+        document.getElementById("home").classList.add("active");
+    }
+
+
+    function showCategories() {
+        hideAll();
+        document.getElementById("categories").classList.add("active");
+    }
+
+
+    function showPlans(type) {
+
+        hideAll();
+
+        const title = document.getElementById("plansTitle");
+        const list = document.getElementById("plansList");
+
+        list.innerHTML = "";
+
+        let plans = [];
+
+        if (type === "user") {
+
+            title.innerText = "👤 نامحدود کاربر — ۱ ماهه";
+
+            plans = [
+                ["30 گیگ", "150 تومان"],
+                ["40 گیگ", "190 تومان"],
+                ["50 گیگ", "230 تومان"],
+                ["60 گیگ", "270 تومان"]
+            ];
+
+        }
+
+        if (type === "service") {
+
+            title.innerText = "⚙️ سرویس — ۱ ماهه";
+
+            plans = [
+                ["30 گیگ", "100 تومان"],
+                ["40 گیگ", "140 تومان"],
+                ["50 گیگ", "180 تومان"],
+                ["60 گیگ", "220 تومان"],
+                ["نامحدود", "350 تومان"]
+            ];
+
+        }
+
+        if (type === "volume") {
+
+            title.innerText = "♾️ حجمی — نامحدود زمانی";
+
+            plans = [
+                ["50 گیگ", "220 تومان"],
+                ["60 گیگ", "280 تومان"]
+            ];
+
+        }
+
+
+        plans.forEach(plan => {
+
+            const card = document.createElement("div");
+
+            card.className = "plan-card";
+
+            card.innerHTML = `
+                <div class="plan-name">
+                    📦 ${plan[0]}
+                </div>
+
+                <div class="plan-price">
+                    💰 ${plan[1]}
+                </div>
+
+                <button class="buy-button"
+                        onclick="buyPlan('${plan[0]}', '${plan[1]}')">
+                    🛒 خرید
+                </button>
+            `;
+
+            list.appendChild(card);
+
+        });
+
+        document.getElementById("plans").classList.add("active");
+    }
+
+
+    function buyPlan(plan, price) {
+
+        tg.showAlert(
+            "پلن انتخاب شده:\n\n" +
+            "📦 " + plan +
+            "\n💰 " + price +
+            "\n\nسیستم پرداخت در مرحله بعد فعال می‌شود."
+        );
+
+    }
+
+
+    function comingSoon() {
+
+        tg.showAlert(
+            "🚀 این بخش به‌زودی فعال می‌شود."
+        );
 
     }
 
