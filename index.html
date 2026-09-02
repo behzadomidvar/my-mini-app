@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>فروشگاه VPN</title>
 
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
@@ -28,11 +27,11 @@
 
         .header {
             text-align: center;
-            padding: 15px 10px 20px;
+            padding: 15px 10px 25px;
         }
 
         .logo {
-            font-size: 50px;
+            font-size: 52px;
         }
 
         h1 {
@@ -45,10 +44,15 @@
             font-size: 14px;
         }
 
-        .menu {
+        .menu,
+        .cards {
             display: flex;
             flex-direction: column;
             gap: 12px;
+        }
+
+        button {
+            font-family: inherit;
         }
 
         .menu-button,
@@ -59,7 +63,6 @@
             border-radius: 18px;
             background: var(--tg-theme-secondary-bg-color);
             color: var(--tg-theme-text-color);
-            cursor: pointer;
         }
 
         .menu-button {
@@ -67,12 +70,13 @@
             font-size: 17px;
             font-weight: bold;
             text-align: right;
+            cursor: pointer;
         }
 
         .menu-button:active,
         .category-card:active,
-        .plan-card:active {
-            transform: scale(0.98);
+        .buy-button:active {
+            transform: scale(0.97);
         }
 
         .emoji {
@@ -104,19 +108,14 @@
             font-size: 21px;
         }
 
-        .cards {
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-        }
-
         .category-card {
-            padding: 20px;
+            padding: 22px;
             text-align: right;
+            cursor: pointer;
         }
 
         .category-icon {
-            font-size: 35px;
+            font-size: 38px;
             float: right;
             margin-left: 15px;
         }
@@ -134,7 +133,6 @@
 
         .plan-card {
             padding: 18px;
-            text-align: right;
         }
 
         .plan-name {
@@ -143,16 +141,17 @@
         }
 
         .plan-price {
-            margin-top: 8px;
-            font-size: 17px;
+            margin-top: 9px;
+            font-size: 16px;
+            opacity: 0.85;
         }
 
         .buy-button {
-            margin-top: 14px;
+            margin-top: 15px;
             width: 100%;
             border: none;
             border-radius: 12px;
-            padding: 13px;
+            padding: 14px;
             font-size: 16px;
             font-weight: bold;
             background: var(--tg-theme-button-color);
@@ -232,7 +231,7 @@
     </div>
 
 
-    <!-- دسته بندی اشتراک ها -->
+    <!-- دسته بندی ها -->
     <div id="categories" class="screen">
 
         <button class="back" onclick="showHome()">
@@ -353,42 +352,45 @@
 
         let plans = [];
 
+
+        // 👤 نامحدود کاربر
         if (type === "user") {
 
             title.innerText = "👤 نامحدود کاربر — ۱ ماهه";
 
             plans = [
-                ["30 گیگ", "150 تومان"],
-                ["40 گیگ", "190 تومان"],
-                ["50 گیگ", "230 تومان"],
-                ["60 گیگ", "270 تومان"]
+                ["30 گیگ", "150,000 تومان"],
+                ["40 گیگ", "190,000 تومان"],
+                ["50 گیگ", "230,000 تومان"],
+                ["60 گیگ", "270,000 تومان"]
             ];
-
         }
 
+
+        // ⚙️ سرویس
         if (type === "service") {
 
             title.innerText = "⚙️ سرویس — ۱ ماهه";
 
             plans = [
-                ["30 گیگ", "100 تومان"],
-                ["40 گیگ", "140 تومان"],
-                ["50 گیگ", "180 تومان"],
-                ["60 گیگ", "220 تومان"],
-                ["نامحدود", "350 تومان"]
+                ["30 گیگ", "100,000 تومان"],
+                ["40 گیگ", "140,000 تومان"],
+                ["50 گیگ", "180,000 تومان"],
+                ["60 گیگ", "220,000 تومان"],
+                ["نامحدود", "350,000 تومان"]
             ];
-
         }
 
+
+        // ♾️ حجمی
         if (type === "volume") {
 
             title.innerText = "♾️ حجمی — نامحدود زمانی";
 
             plans = [
-                ["50 گیگ", "220 تومان"],
-                ["60 گیگ", "280 تومان"]
+                ["50 گیگ", "220,000 تومان"],
+                ["60 گیگ", "280,000 تومان"]
             ];
-
         }
 
 
@@ -408,7 +410,7 @@
                 </div>
 
                 <button class="buy-button"
-                        onclick="buyPlan('${plan[0]}', '${plan[1]}')">
+                    onclick="buyPlan('${plan[0]}', '${plan[1]}')">
                     🛒 خرید
                 </button>
             `;
@@ -417,17 +419,19 @@
 
         });
 
+
         document.getElementById("plans").classList.add("active");
     }
 
 
+    // فعلاً خرید واقعی فعال نیست
     function buyPlan(plan, price) {
 
         tg.showAlert(
-            "پلن انتخاب شده:\n\n" +
-            "📦 " + plan +
-            "\n💰 " + price +
-            "\n\nسیستم پرداخت در مرحله بعد فعال می‌شود."
+            "🧾 سفارش شما\n\n" +
+            "📦 حجم: " + plan +
+            "\n💰 مبلغ: " + price +
+            "\n\n💳 سیستم پرداخت در مرحله بعد اضافه می‌شود."
         );
 
     }
