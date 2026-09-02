@@ -33,8 +33,13 @@
       min-height: 100vh;
     }
 
-    button {
+    button,
+    input {
       font-family: inherit;
+    }
+
+    button {
+      -webkit-appearance: none;
     }
 
     .container {
@@ -101,7 +106,8 @@
     .menu-btn:active,
     .plan:active,
     .primary-btn:active,
-    .secondary-btn:active {
+    .secondary-btn:active,
+    .back:active {
       transform: scale(.97);
     }
 
@@ -263,6 +269,75 @@
       margin: 14px 0;
     }
 
+    .error {
+      background: #450a0a;
+      border: 1px solid #991b1b;
+      color: #fecaca;
+      border-radius: 14px;
+      padding: 14px;
+      font-size: 15px;
+      line-height: 2;
+      margin: 14px 0;
+      display: none;
+    }
+
+    .receipt-box {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 18px;
+      padding: 18px;
+      margin-top: 15px;
+    }
+
+    .receipt-title {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .receipt-info {
+      color: #94a3b8;
+      font-size: 14px;
+      line-height: 1.9;
+      margin-bottom: 12px;
+    }
+
+    .file-label {
+      display: block;
+      width: 100%;
+      background: #334155;
+      border-radius: 14px;
+      padding: 15px;
+      text-align: center;
+      cursor: pointer;
+      font-size: 17px;
+    }
+
+    #receiptFile {
+      display: none;
+    }
+
+    .file-name {
+      display: none;
+      background: #0f172a;
+      border-radius: 12px;
+      padding: 12px;
+      margin-top: 10px;
+      color: #cbd5e1;
+      font-size: 14px;
+      word-break: break-word;
+    }
+
+    .order-box {
+      background: #0f172a;
+      border: 1px solid #334155;
+      border-radius: 14px;
+      padding: 14px;
+      margin-top: 12px;
+      line-height: 2;
+      font-size: 15px;
+    }
+
     .empty {
       text-align: center;
       padding: 35px 15px;
@@ -292,6 +367,35 @@
       padding: 25px 0 10px;
     }
 
+    .loading {
+      display: none;
+      text-align: center;
+      padding: 15px 0 5px;
+      color: #cbd5e1;
+      font-size: 15px;
+    }
+
+    .success-screen {
+      text-align: center;
+      padding: 30px 10px;
+    }
+
+    .success-big-icon {
+      font-size: 65px;
+      margin-bottom: 10px;
+    }
+
+    .success-screen h2 {
+      font-size: 25px;
+      margin: 5px 0 12px;
+    }
+
+    .success-screen p {
+      color: #94a3b8;
+      line-height: 2;
+      font-size: 16px;
+    }
+
     @media (max-width: 360px) {
       .menu-grid {
         grid-template-columns: 1fr;
@@ -313,11 +417,14 @@
 
 <div class="container">
 
+  <!-- HEADER -->
+
   <div class="header">
     <div class="logo">🚀</div>
     <h1>Nova VPN</h1>
     <p>خرید و مدیریت سرویس VPN</p>
   </div>
+
 
   <!-- HOME -->
 
@@ -368,6 +475,7 @@
 
   </div>
 
+
   <!-- BUY -->
 
   <div id="buy" class="screen">
@@ -378,12 +486,14 @@
 
     <h2 class="section-title">🛒 خرید اشتراک</h2>
 
+
     <div class="card">
       <h2>👤 نامحدود کاربر</h2>
       <p>
         سرویس یک ماهه با امکان استفاده بدون محدودیت تعداد کاربر
       </p>
     </div>
+
 
     <div class="plan" onclick="selectPlan('نامحدود کاربر - 30 گیگ', 150000)">
       <div class="plan-top">
@@ -393,6 +503,7 @@
       <div class="plan-info">مدت: 1 ماه</div>
     </div>
 
+
     <div class="plan" onclick="selectPlan('نامحدود کاربر - 40 گیگ', 190000)">
       <div class="plan-top">
         <div class="plan-title">40 گیگ</div>
@@ -400,6 +511,7 @@
       </div>
       <div class="plan-info">مدت: 1 ماه</div>
     </div>
+
 
     <div class="plan" onclick="selectPlan('نامحدود کاربر - 50 گیگ', 230000)">
       <div class="plan-top">
@@ -409,6 +521,7 @@
       <div class="plan-info">مدت: 1 ماه</div>
     </div>
 
+
     <div class="plan" onclick="selectPlan('نامحدود کاربر - 60 گیگ', 270000)">
       <div class="plan-top">
         <div class="plan-title">60 گیگ</div>
@@ -417,12 +530,14 @@
       <div class="plan-info">مدت: 1 ماه</div>
     </div>
 
+
     <div class="card">
       <h2>⚙️ سرویس</h2>
       <p>
         سرویس‌های یک ماهه با حجم‌های مختلف
       </p>
     </div>
+
 
     <div class="plan" onclick="selectPlan('سرویس - 30 گیگ', 100000)">
       <div class="plan-top">
@@ -432,6 +547,7 @@
       <div class="plan-info">مدت: 1 ماه</div>
     </div>
 
+
     <div class="plan" onclick="selectPlan('سرویس - 40 گیگ', 140000)">
       <div class="plan-top">
         <div class="plan-title">40 گیگ</div>
@@ -439,6 +555,7 @@
       </div>
       <div class="plan-info">مدت: 1 ماه</div>
     </div>
+
 
     <div class="plan" onclick="selectPlan('سرویس - 50 گیگ', 180000)">
       <div class="plan-top">
@@ -448,6 +565,7 @@
       <div class="plan-info">مدت: 1 ماه</div>
     </div>
 
+
     <div class="plan" onclick="selectPlan('سرویس - 60 گیگ', 220000)">
       <div class="plan-top">
         <div class="plan-title">60 گیگ</div>
@@ -455,6 +573,7 @@
       </div>
       <div class="plan-info">مدت: 1 ماه</div>
     </div>
+
 
     <div class="plan" onclick="selectPlan('سرویس - نامحدود', 350000)">
       <div class="plan-top">
@@ -464,12 +583,14 @@
       <div class="plan-info">مدت: 1 ماه</div>
     </div>
 
+
     <div class="card">
       <h2>♾️ حجمی</h2>
       <p>
         حجم مشخص با زمان استفاده نامحدود
       </p>
     </div>
+
 
     <div class="plan" onclick="selectPlan('حجمی - 50 گیگ', 220000)">
       <div class="plan-top">
@@ -478,6 +599,7 @@
       </div>
       <div class="plan-info">زمان: نامحدود</div>
     </div>
+
 
     <div class="plan" onclick="selectPlan('حجمی - 60 گیگ', 280000)">
       <div class="plan-top">
@@ -489,15 +611,17 @@
 
   </div>
 
+
   <!-- PAYMENT -->
 
   <div id="payment" class="screen">
 
     <button class="back" onclick="showScreen('buy')">
-      ← بازگشت
+      ← انتخاب سرویس دیگر
     </button>
 
     <h2 class="section-title">💳 پرداخت</h2>
+
 
     <div class="payment-card">
 
@@ -517,35 +641,124 @@
         6037 9972 5861 7217
       </div>
 
+
       <button class="copy-btn" onclick="copyCard()">
         📋 کپی شماره کارت
       </button>
 
     </div>
 
+
     <div class="warning">
       ⚠️ لطفاً دقیقاً مبلغ نمایش داده شده را به شماره کارت بالا انتقال دهید.
       <br>
-      سپس تصویر رسید پرداخت را برای ربات ارسال کنید.
+      سپس تصویر رسید پرداخت را انتخاب کنید.
     </div>
+
 
     <div class="success">
-      ✅ بعد از تأیید پرداخت توسط مدیریت، سرویس شما ساخته شده و اطلاعات آن برای شما ارسال می‌شود.
+      ✅ بعد از تأیید پرداخت توسط مدیریت، سرویس شما فعال خواهد شد.
     </div>
 
-    <button class="primary-btn" onclick="sendReceipt()">
-      📤 ارسال اطلاعات سفارش
-    </button>
+
+    <!-- RECEIPT -->
+
+    <div class="receipt-box">
+
+      <div class="receipt-title">
+        🧾 ارسال رسید پرداخت
+      </div>
+
+      <div class="receipt-info">
+        تصویر رسید کارت‌به‌کارت خود را انتخاب کنید.
+        <br>
+        رسید همراه اطلاعات همین سرویس برای مدیریت ارسال می‌شود.
+      </div>
+
+
+      <label class="file-label" for="receiptFile">
+        📷 انتخاب تصویر رسید
+      </label>
+
+
+      <input
+        type="file"
+        id="receiptFile"
+        accept="image/*"
+        onchange="receiptSelected(event)"
+      >
+
+
+      <div id="fileName" class="file-name"></div>
+
+
+      <div id="orderPreview" class="order-box">
+        ابتدا یک سرویس را انتخاب کنید.
+      </div>
+
+
+      <div id="errorBox" class="error"></div>
+
+
+      <button
+        id="sendReceiptBtn"
+        class="primary-btn"
+        onclick="sendReceipt()"
+      >
+        📤 ارسال رسید
+      </button>
+
+
+      <div id="loadingBox" class="loading">
+        ⏳ در حال ارسال رسید...
+      </div>
+
+    </div>
+
 
     <button class="secondary-btn" onclick="showScreen('buy')">
       انتخاب سرویس دیگر
     </button>
+
 
     <p class="small">
       ربات: @novavppnbot
     </p>
 
   </div>
+
+
+  <!-- SUCCESS -->
+
+  <div id="receiptSuccess" class="screen">
+
+    <div class="success-screen">
+
+      <div class="success-big-icon">
+        ✅
+      </div>
+
+      <h2>
+        رسید با موفقیت ارسال شد
+      </h2>
+
+      <p>
+        رسید پرداخت و مشخصات سرویس برای مدیریت ارسال شد.
+        <br>
+        بعد از بررسی و تأیید پرداخت، اشتراک شما فعال خواهد شد.
+      </p>
+
+      <button
+        class="primary-btn"
+        onclick="showScreen('home')"
+      >
+        🏠 بازگشت به صفحه اصلی
+      </button>
+
+    </div>
+
+  </div>
+
 
   <!-- SERVICES -->
 
@@ -577,6 +790,7 @@
 
   </div>
 
+
   <!-- WALLET -->
 
   <div id="wallet" class="screen">
@@ -607,6 +821,7 @@
 
   </div>
 
+
   <!-- TEST -->
 
   <div id="test" class="screen">
@@ -633,6 +848,7 @@
     </div>
 
   </div>
+
 
   <!-- RENEW -->
 
@@ -664,6 +880,7 @@
     </div>
 
   </div>
+
 
   <!-- EDUCATION -->
 
@@ -697,7 +914,9 @@
 
 <script>
 
-/* ================= TELEGRAM ================= */
+/* =========================================================
+   TELEGRAM
+========================================================= */
 
 const tg =
   window.Telegram && window.Telegram.WebApp
@@ -705,214 +924,741 @@ const tg =
     : null;
 
 
+/* =========================================================
+   INIT TELEGRAM
+========================================================= */
+
 if (tg) {
 
   tg.ready();
+
   tg.expand();
 
   try {
+
     tg.setHeaderColor("#0f172a");
+
     tg.setBackgroundColor("#0f172a");
+
   } catch (e) {}
 
 }
 
 
-/* ================= BOT ================= */
+/* =========================================================
+   BOT
+========================================================= */
 
 const BOT_USERNAME = "novavppnbot";
 
 
-/* ================= CARD ================= */
+/* =========================================================
+   WORKER
+========================================================= */
 
-const CARD_NUMBER = "6037997258617217";
+const WORKER_URL =
+  "https://orange-cloud-2087.behzadomiidvar.workers.dev/receipt";
 
 
-/* ================= SELECTED PLAN ================= */
+/* =========================================================
+   CARD
+========================================================= */
+
+const CARD_NUMBER =
+  "6037997258617217";
+
+
+/* =========================================================
+   SELECTED PLAN
+========================================================= */
 
 let selectedPlan = "";
+
 let selectedPrice = 0;
 
+let selectedReceiptFile = null;
 
-/* ================= SCREEN ================= */
+let sendingReceipt = false;
+
+
+/* =========================================================
+   SCREEN
+========================================================= */
 
 function showScreen(screenId) {
 
-  document.querySelectorAll(".screen").forEach(function(screen) {
-    screen.classList.remove("active");
-  });
+  document
+    .querySelectorAll(".screen")
+    .forEach(function(screen) {
 
-  const target = document.getElementById(screenId);
+      screen.classList.remove("active");
+
+    });
+
+
+  const target =
+    document.getElementById(screenId);
+
 
   if (target) {
+
     target.classList.add("active");
-    window.scrollTo(0, 0);
+
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+
   }
 
 }
 
 
-/* ================= SELECT PLAN ================= */
+/* =========================================================
+   SELECT PLAN
+========================================================= */
 
 function selectPlan(name, price) {
 
-  selectedPlan = name;
-  selectedPrice = price;
+  selectedPlan =
+    String(name);
 
-  document.getElementById("selectedPlan").innerHTML =
+  selectedPrice =
+    Number(price);
+
+
+  document.getElementById(
+    "selectedPlan"
+  ).innerHTML =
+
     "<p><b>سرویس انتخاب شده:</b><br>" +
-    escapeHtml(name) +
+
+    escapeHtml(selectedPlan) +
+
     "</p>";
 
-  document.getElementById("selectedPrice").innerText =
-    formatPrice(price) + " تومان";
+
+  document.getElementById(
+    "selectedPrice"
+  ).innerText =
+
+    formatPrice(selectedPrice) +
+    " تومان";
+
+
+  selectedReceiptFile = null;
+
+
+  const fileInput =
+    document.getElementById(
+      "receiptFile"
+    );
+
+
+  if (fileInput) {
+
+    fileInput.value = "";
+
+  }
+
+
+  const fileName =
+    document.getElementById(
+      "fileName"
+    );
+
+
+  if (fileName) {
+
+    fileName.style.display =
+      "none";
+
+    fileName.innerText = "";
+
+  }
+
+
+  hideError();
+
+
+  updateOrderPreview();
+
 
   showScreen("payment");
 
 }
 
 
-/* ================= FORMAT PRICE ================= */
+/* =========================================================
+   UPDATE ORDER PREVIEW
+========================================================= */
 
-function formatPrice(price) {
-  return Number(price).toLocaleString("fa-IR");
-}
+function updateOrderPreview() {
 
-
-/* ================= ESCAPE HTML ================= */
-
-function escapeHtml(text) {
-
-  return String(text)
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#039;");
-
-}
+  const preview =
+    document.getElementById(
+      "orderPreview"
+    );
 
 
-/* ================= COPY CARD ================= */
-
-function copyCard() {
-
-  if (navigator.clipboard) {
-
-    navigator.clipboard.writeText(CARD_NUMBER)
-
-      .then(function() {
-        alert("شماره کارت کپی شد ✅");
-      })
-
-      .catch(function() {
-        alert("شماره کارت: " + CARD_NUMBER);
-      });
-
-  } else {
-
-    alert("شماره کارت: " + CARD_NUMBER);
-
+  if (!preview) {
+    return;
   }
 
-}
-
-
-/* ================= OPEN BOT ================= */
-
-function openBot() {
-
-  const url = "https://t.me/" + BOT_USERNAME;
-
-  if (tg && tg.openTelegramLink) {
-
-    tg.openTelegramLink(url);
-
-  } else {
-
-    window.open(url, "_blank");
-
-  }
-
-}
-
-
-/* ================= SEND WEB APP DATA ================= */
-
-function sendReceipt() {
 
   if (!selectedPlan || !selectedPrice) {
 
-    alert("ابتدا یک سرویس انتخاب کنید.");
+    preview.innerHTML =
+      "ابتدا یک سرویس را انتخاب کنید.";
 
     return;
 
   }
 
 
-  const data = {
+  const user =
+    getTelegramUser();
 
-    action: "test_web_app",
 
-    plan: selectedPlan,
+  const userId =
+    user.id
+      ? String(user.id)
+      : "نامشخص";
 
-    price: selectedPrice,
 
-    currency: "IRR",
+  preview.innerHTML =
 
-    user_id:
-      tg &&
-      tg.initDataUnsafe &&
-      tg.initDataUnsafe.user
-        ? tg.initDataUnsafe.user.id
-        : null,
+    "<b>📦 سفارش شما</b><br><br>" +
 
-    username:
-      tg &&
-      tg.initDataUnsafe &&
-      tg.initDataUnsafe.user
-        ? tg.initDataUnsafe.user.username || ""
-        : "",
+    "سرویس: " +
+    escapeHtml(selectedPlan) +
 
-    first_name:
-      tg &&
-      tg.initDataUnsafe &&
-      tg.initDataUnsafe.user
-        ? tg.initDataUnsafe.user.first_name || ""
-        : ""
+    "<br>" +
+
+    "مبلغ: " +
+    formatPrice(selectedPrice) +
+    " تومان" +
+
+    "<br>" +
+
+    "🆔 شناسه تلگرام: " +
+    escapeHtml(userId);
+
+}
+
+
+/* =========================================================
+   FORMAT PRICE
+========================================================= */
+
+function formatPrice(price) {
+
+  return Number(price)
+    .toLocaleString("fa-IR");
+
+}
+
+
+/* =========================================================
+   ESCAPE HTML
+========================================================= */
+
+function escapeHtml(text) {
+
+  return String(text)
+
+    .replace(/&/g, "&amp;")
+
+    .replace(/</g, "&lt;")
+
+    .replace(/>/g, "&gt;")
+
+    .replace(/"/g, "&quot;")
+
+    .replace(/'/g, "&#039;");
+
+}
+
+
+/* =========================================================
+   TELEGRAM USER
+========================================================= */
+
+function getTelegramUser() {
+
+  if (
+    tg &&
+    tg.initDataUnsafe &&
+    tg.initDataUnsafe.user
+  ) {
+
+    return tg.initDataUnsafe.user;
+
+  }
+
+
+  return {
+
+    id: null,
+
+    username: "",
+
+    first_name: ""
 
   };
 
+}
 
-  if (tg && tg.sendData) {
 
-    try {
+/* =========================================================
+   COPY CARD
+========================================================= */
 
-      tg.sendData(JSON.stringify(data));
+function copyCard() {
 
-    } catch (e) {
+  if (
+    navigator.clipboard &&
+    navigator.clipboard.writeText
+  ) {
 
-      alert("ارسال اطلاعات سفارش انجام نشد.");
+    navigator.clipboard
+      .writeText(CARD_NUMBER)
 
-    }
+      .then(function() {
+
+        alert(
+          "شماره کارت کپی شد ✅"
+        );
+
+      })
+
+      .catch(function() {
+
+        alert(
+          "شماره کارت: " +
+          CARD_NUMBER
+        );
+
+      });
 
   } else {
 
-    alert("این Mini App باید از داخل تلگرام باز شود.");
+    alert(
+      "شماره کارت: " +
+      CARD_NUMBER
+    );
 
   }
 
 }
 
 
-/* ================= SUPPORT ================= */
+/* =========================================================
+   OPEN BOT
+========================================================= */
 
-function openSupport() {
-  openBot();
+function openBot() {
+
+  const url =
+    "https://t.me/" +
+    BOT_USERNAME;
+
+
+  if (
+    tg &&
+    tg.openTelegramLink
+  ) {
+
+    tg.openTelegramLink(url);
+
+  } else {
+
+    window.open(
+      url,
+      "_blank"
+    );
+
+  }
+
 }
 
 
-/* ================= BACK BUTTON ================= */
+/* =========================================================
+   RECEIPT SELECTED
+========================================================= */
+
+function receiptSelected(event) {
+
+  const file =
+    event.target.files &&
+    event.target.files[0];
+
+
+  if (!file) {
+
+    selectedReceiptFile =
+      null;
+
+    return;
+
+  }
+
+
+  if (
+    !file.type ||
+    !file.type.startsWith("image/")
+  ) {
+
+    showError(
+      "لطفاً فقط تصویر رسید را انتخاب کنید."
+    );
+
+
+    event.target.value =
+      "";
+
+
+    selectedReceiptFile =
+      null;
+
+
+    return;
+
+  }
+
+
+  if (
+    file.size >
+    10 * 1024 * 1024
+  ) {
+
+    showError(
+      "حجم تصویر نباید بیشتر از ۱۰ مگابایت باشد."
+    );
+
+
+    event.target.value =
+      "";
+
+
+    selectedReceiptFile =
+      null;
+
+
+    return;
+
+  }
+
+
+  selectedReceiptFile =
+    file;
+
+
+  const fileName =
+    document.getElementById(
+      "fileName"
+    );
+
+
+  fileName.style.display =
+    "block";
+
+
+  fileName.innerText =
+    "✅ رسید انتخاب شد: " +
+    file.name;
+
+
+  hideError();
+
+}
+
+
+/* =========================================================
+   SHOW ERROR
+========================================================= */
+
+function showError(message) {
+
+  const box =
+    document.getElementById(
+      "errorBox"
+    );
+
+
+  if (!box) {
+    return;
+  }
+
+
+  box.style.display =
+    "block";
+
+
+  box.innerText =
+    message;
+
+
+}
+
+
+/* =========================================================
+   HIDE ERROR
+========================================================= */
+
+function hideError() {
+
+  const box =
+    document.getElementById(
+      "errorBox"
+    );
+
+
+  if (!box) {
+    return;
+  }
+
+
+  box.style.display =
+    "none";
+
+
+  box.innerText =
+    "";
+
+}
+
+
+/* =========================================================
+   SET LOADING
+========================================================= */
+
+function setLoading(isLoading) {
+
+  const button =
+    document.getElementById(
+      "sendReceiptBtn"
+    );
+
+
+  const loading =
+    document.getElementById(
+      "loadingBox"
+    );
+
+
+  if (button) {
+
+    button.disabled =
+      isLoading;
+
+    button.style.opacity =
+      isLoading
+        ? "0.6"
+        : "1";
+
+  }
+
+
+  if (loading) {
+
+    loading.style.display =
+      isLoading
+        ? "block"
+        : "none";
+
+  }
+
+
+  sendingReceipt =
+    isLoading;
+
+}
+
+
+/* =========================================================
+   SEND RECEIPT TO WORKER
+========================================================= */
+
+async function sendReceipt() {
+
+  if (sendingReceipt) {
+    return;
+  }
+
+
+  hideError();
+
+
+  if (!selectedPlan || !selectedPrice) {
+
+    showError(
+      "ابتدا یک سرویس انتخاب کنید."
+    );
+
+    return;
+
+  }
+
+
+  if (!selectedReceiptFile) {
+
+    showError(
+      "ابتدا تصویر رسید پرداخت را انتخاب کنید."
+    );
+
+    return;
+
+  }
+
+
+  if (!tg) {
+
+    showError(
+      "این Mini App باید از داخل تلگرام باز شود."
+    );
+
+    return;
+
+  }
+
+
+  if (!tg.initData) {
+
+    showError(
+      "اطلاعات کاربر تلگرام دریافت نشد. Mini App را مستقیماً از داخل ربات باز کنید."
+    );
+
+    return;
+
+  }
+
+
+  setLoading(true);
+
+
+  try {
+
+    const formData =
+      new FormData();
+
+
+    formData.append(
+      "receipt",
+      selectedReceiptFile,
+      selectedReceiptFile.name ||
+      "receipt.jpg"
+    );
+
+
+    formData.append(
+      "plan",
+      selectedPlan
+    );
+
+
+    formData.append(
+      "price",
+      String(selectedPrice)
+    );
+
+
+    /*
+      initData خام تلگرام را ارسال می‌کنیم.
+      Worker آن را با BOT_TOKEN اعتبارسنجی می‌کند.
+    */
+
+    formData.append(
+      "initData",
+      tg.initData
+    );
+
+
+    const response =
+      await fetch(
+        WORKER_URL,
+        {
+          method: "POST",
+          body: formData
+        }
+      );
+
+
+    let result = null;
+
+
+    try {
+
+      result =
+        await response.json();
+
+    } catch (e) {
+
+      result = null;
+
+    }
+
+
+    if (
+      !response.ok ||
+      !result ||
+      !result.ok
+    ) {
+
+      const message =
+        result &&
+        result.error
+          ? result.error
+          : "ارسال رسید ناموفق بود.";
+
+
+      throw new Error(
+        message
+      );
+
+    }
+
+
+    setLoading(false);
+
+
+    showScreen(
+      "receiptSuccess"
+    );
+
+
+  } catch (error) {
+
+    setLoading(false);
+
+
+    showError(
+      error &&
+      error.message
+        ? error.message
+        : "ارسال رسید انجام نشد. دوباره تلاش کنید."
+    );
+
+  }
+
+}
+
+
+/* =========================================================
+   SUPPORT
+========================================================= */
+
+function openSupport() {
+
+  openBot();
+
+}
+
+
+/* =========================================================
+   BACK BUTTON
+========================================================= */
 
 if (tg) {
 
@@ -920,27 +1666,49 @@ if (tg) {
 
     tg.BackButton.show();
 
-    tg.BackButton.onClick(function() {
 
-      const activeScreen =
-        document.querySelector(".screen.active");
+    tg.BackButton.onClick(
+      function() {
+
+        const activeScreen =
+          document.querySelector(
+            ".screen.active"
+          );
 
 
-      if (!activeScreen || activeScreen.id === "home") {
+        if (
+          !activeScreen ||
+          activeScreen.id === "home"
+        ) {
 
-        tg.close();
+          tg.close();
 
-      } else {
+        } else {
 
-        showScreen("home");
+          showScreen("home");
+
+        }
 
       }
-
-    });
+    );
 
   } catch (e) {}
 
 }
+
+
+/* =========================================================
+   INITIALIZE
+========================================================= */
+
+document.addEventListener(
+  "DOMContentLoaded",
+  function() {
+
+    updateOrderPreview();
+
+  }
+);
 
 </script>
 
