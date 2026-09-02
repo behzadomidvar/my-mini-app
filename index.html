@@ -1,5 +1,5 @@
+```html
 <!DOCTYPE html>
-
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8">
@@ -10,9 +10,6 @@
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
 
   <style>
-
-    /* ================= FONT ================= */
-
     @font-face {
       font-family: "B Nazanin";
       src: url("https://db.onlinewebfonts.com/t/3671adca6f650c92b83f906e49656986.woff2") format("woff2"),
@@ -34,11 +31,10 @@
       background: #0f172a;
       color: #fff;
       min-height: 100vh;
-      font-family: "B Nazanin", Tahoma, Arial, sans-serif;
     }
 
     button {
-      font-family: "B Nazanin", Tahoma, Arial, sans-serif;
+      font-family: inherit;
     }
 
     .container {
@@ -92,7 +88,7 @@
     }
 
     .menu-btn {
-      border: 0;
+      border: 1px solid #334155;
       border-radius: 18px;
       padding: 22px 10px;
       background: #1e293b;
@@ -100,10 +96,12 @@
       font-size: 18px;
       cursor: pointer;
       transition: .15s;
-      border: 1px solid #334155;
     }
 
-    .menu-btn:active {
+    .menu-btn:active,
+    .plan:active,
+    .primary-btn:active,
+    .secondary-btn:active {
       transform: scale(.97);
     }
 
@@ -113,7 +111,8 @@
       margin-bottom: 9px;
     }
 
-    .card {
+    .card,
+    .plan {
       background: #1e293b;
       border: 1px solid #334155;
       border-radius: 18px;
@@ -133,17 +132,9 @@
     }
 
     .plan {
-      background: #1e293b;
-      border: 1px solid #334155;
-      border-radius: 17px;
       padding: 16px;
-      margin-bottom: 12px;
       cursor: pointer;
       transition: .15s;
-    }
-
-    .plan:active {
-      transform: scale(.98);
     }
 
     .plan-top {
@@ -182,29 +173,33 @@
       font-size: 17px;
     }
 
-    .primary-btn {
+    .primary-btn,
+    .secondary-btn,
+    .copy-btn {
       width: 100%;
       border: 0;
       border-radius: 15px;
-      padding: 15px;
-      background: linear-gradient(135deg, #2563eb, #7c3aed);
       color: white;
-      font-size: 18px;
-      font-weight: bold;
       cursor: pointer;
+      font-size: 18px;
+      padding: 15px;
       margin-top: 10px;
     }
 
+    .primary-btn {
+      background: linear-gradient(135deg, #2563eb, #7c3aed);
+      font-weight: bold;
+    }
+
     .secondary-btn {
-      width: 100%;
-      border: 0;
-      border-radius: 15px;
-      padding: 14px;
       background: #334155;
-      color: white;
-      font-size: 17px;
-      cursor: pointer;
-      margin-top: 10px;
+    }
+
+    .copy-btn {
+      background: #2563eb;
+      font-size: 16px;
+      padding: 12px;
+      border-radius: 12px;
     }
 
     .payment-card {
@@ -268,17 +263,6 @@
       margin: 14px 0;
     }
 
-    .copy-btn {
-      width: 100%;
-      border: 0;
-      border-radius: 12px;
-      padding: 12px;
-      background: #2563eb;
-      color: #fff;
-      cursor: pointer;
-      font-size: 16px;
-    }
-
     .empty {
       text-align: center;
       padding: 35px 15px;
@@ -316,17 +300,18 @@
       .card-number {
         font-size: 17px;
       }
+
+      .plan-top {
+        flex-direction: column;
+        align-items: flex-start;
+      }
     }
-
   </style>
-
 </head>
 
 <body>
 
 <div class="container">
-
-  <!-- HEADER -->
 
   <div class="header">
     <div class="logo">🚀</div>
@@ -334,425 +319,372 @@
     <p>خرید و مدیریت سرویس VPN</p>
   </div>
 
-  <!-- ================= HOME ================= -->
-
+  <!-- HOME -->
   <div id="home" class="screen active">
 
-```
-<div class="menu-grid">
+    <div class="menu-grid">
 
-  <button class="menu-btn" onclick="showScreen('buy')">
-    <span class="menu-icon">🛒</span>
-    خرید اشتراک
-  </button>
+      <button class="menu-btn" onclick="showScreen('buy')">
+        <span class="menu-icon">🛒</span>
+        خرید اشتراک
+      </button>
 
-  <button class="menu-btn" onclick="showScreen('services')">
-    <span class="menu-icon">📦</span>
-    سرویس‌های من
-  </button>
+      <button class="menu-btn" onclick="showScreen('services')">
+        <span class="menu-icon">📦</span>
+        سرویس‌های من
+      </button>
 
-  <button class="menu-btn" onclick="showScreen('wallet')">
-    <span class="menu-icon">💰</span>
-    کیف پول
-  </button>
+      <button class="menu-btn" onclick="showScreen('wallet')">
+        <span class="menu-icon">💰</span>
+        کیف پول
+      </button>
 
-  <button class="menu-btn" onclick="showScreen('test')">
-    <span class="menu-icon">🔑</span>
-    اکانت تست
-  </button>
+      <button class="menu-btn" onclick="showScreen('test')">
+        <span class="menu-icon">🔑</span>
+        اکانت تست
+      </button>
 
-  <button class="menu-btn" onclick="showScreen('renew')">
-    <span class="menu-icon">🔄</span>
-    تمدید سرویس
-  </button>
+      <button class="menu-btn" onclick="showScreen('renew')">
+        <span class="menu-icon">🔄</span>
+        تمدید سرویس
+      </button>
 
-  <button class="menu-btn" onclick="showScreen('education')">
-    <span class="menu-icon">🎓</span>
-    آموزش
-  </button>
+      <button class="menu-btn" onclick="showScreen('education')">
+        <span class="menu-icon">🎓</span>
+        آموزش
+      </button>
 
-  <button class="menu-btn" onclick="openSupport()">
-    <span class="menu-icon">💬</span>
-    پشتیبانی
-  </button>
+      <button class="menu-btn" onclick="openSupport()">
+        <span class="menu-icon">💬</span>
+        پشتیبانی
+      </button>
 
-</div>
+    </div>
 
-<div class="footer">
-  Nova VPN
-</div>
-```
+    <div class="footer">
+      Nova VPN
+    </div>
 
   </div>
 
-  <!-- ================= BUY ================= -->
 
+  <!-- BUY -->
   <div id="buy" class="screen">
 
-```
-<button class="back" onclick="showScreen('home')">
-  ← بازگشت
-</button>
+    <button class="back" onclick="showScreen('home')">
+      ← بازگشت
+    </button>
 
-<h2 class="section-title">🛒 خرید اشتراک</h2>
+    <h2 class="section-title">🛒 خرید اشتراک</h2>
 
+    <div class="card">
+      <h2>👤 نامحدود کاربر</h2>
+      <p>
+        سرویس یک ماهه با امکان استفاده بدون محدودیت تعداد کاربر
+      </p>
+    </div>
 
-<div class="card">
-  <h2>👤 نامحدود کاربر</h2>
-  <p>
-    سرویس یک ماهه با امکان استفاده بدون محدودیت تعداد کاربر
-  </p>
-</div>
+    <div class="plan" onclick="selectPlan('نامحدود کاربر - 30 گیگ', 150000)">
+      <div class="plan-top">
+        <div class="plan-title">30 گیگ</div>
+        <div class="plan-price">150,000 تومان</div>
+      </div>
+      <div class="plan-info">مدت: 1 ماه</div>
+    </div>
 
+    <div class="plan" onclick="selectPlan('نامحدود کاربر - 40 گیگ', 190000)">
+      <div class="plan-top">
+        <div class="plan-title">40 گیگ</div>
+        <div class="plan-price">190,000 تومان</div>
+      </div>
+      <div class="plan-info">مدت: 1 ماه</div>
+    </div>
 
-<div class="plan" onclick="selectPlan('نامحدود کاربر - 30 گیگ', 150000)">
-  <div class="plan-top">
-    <div class="plan-title">30 گیگ</div>
-    <div class="plan-price">150,000 تومان</div>
-  </div>
-  <div class="plan-info">مدت: 1 ماه</div>
-</div>
+    <div class="plan" onclick="selectPlan('نامحدود کاربر - 50 گیگ', 230000)">
+      <div class="plan-top">
+        <div class="plan-title">50 گیگ</div>
+        <div class="plan-price">230,000 تومان</div>
+      </div>
+      <div class="plan-info">مدت: 1 ماه</div>
+    </div>
 
-
-<div class="plan" onclick="selectPlan('نامحدود کاربر - 40 گیگ', 190000)">
-  <div class="plan-top">
-    <div class="plan-title">40 گیگ</div>
-    <div class="plan-price">190,000 تومان</div>
-  </div>
-  <div class="plan-info">مدت: 1 ماه</div>
-</div>
-
-
-<div class="plan" onclick="selectPlan('نامحدود کاربر - 50 گیگ', 230000)">
-  <div class="plan-top">
-    <div class="plan-title">50 گیگ</div>
-    <div class="plan-price">230,000 تومان</div>
-  </div>
-  <div class="plan-info">مدت: 1 ماه</div>
-</div>
-
-
-<div class="plan" onclick="selectPlan('نامحدود کاربر - 60 گیگ', 270000)">
-  <div class="plan-top">
-    <div class="plan-title">60 گیگ</div>
-    <div class="plan-price">270,000 تومان</div>
-  </div>
-  <div class="plan-info">مدت: 1 ماه</div>
-</div>
+    <div class="plan" onclick="selectPlan('نامحدود کاربر - 60 گیگ', 270000)">
+      <div class="plan-top">
+        <div class="plan-title">60 گیگ</div>
+        <div class="plan-price">270,000 تومان</div>
+      </div>
+      <div class="plan-info">مدت: 1 ماه</div>
+    </div>
 
 
-<div class="card">
-  <h2>⚙️ سرویس</h2>
-  <p>
-    سرویس‌های یک ماهه با حجم‌های مختلف
-  </p>
-</div>
+    <div class="card">
+      <h2>⚙️ سرویس</h2>
+      <p>
+        سرویس‌های یک ماهه با حجم‌های مختلف
+      </p>
+    </div>
+
+    <div class="plan" onclick="selectPlan('سرویس - 30 گیگ', 100000)">
+      <div class="plan-top">
+        <div class="plan-title">30 گیگ</div>
+        <div class="plan-price">100,000 تومان</div>
+      </div>
+      <div class="plan-info">مدت: 1 ماه</div>
+    </div>
+
+    <div class="plan" onclick="selectPlan('سرویس - 40 گیگ', 140000)">
+      <div class="plan-top">
+        <div class="plan-title">40 گیگ</div>
+        <div class="plan-price">140,000 تومان</div>
+      </div>
+      <div class="plan-info">مدت: 1 ماه</div>
+    </div>
+
+    <div class="plan" onclick="selectPlan('سرویس - 50 گیگ', 180000)">
+      <div class="plan-top">
+        <div class="plan-title">50 گیگ</div>
+        <div class="plan-price">180,000 تومان</div>
+      </div>
+      <div class="plan-info">مدت: 1 ماه</div>
+    </div>
+
+    <div class="plan" onclick="selectPlan('سرویس - 60 گیگ', 220000)">
+      <div class="plan-top">
+        <div class="plan-title">60 گیگ</div>
+        <div class="plan-price">220,000 تومان</div>
+      </div>
+      <div class="plan-info">مدت: 1 ماه</div>
+    </div>
+
+    <div class="plan" onclick="selectPlan('سرویس - نامحدود', 350000)">
+      <div class="plan-top">
+        <div class="plan-title">نامحدود</div>
+        <div class="plan-price">350,000 تومان</div>
+      </div>
+      <div class="plan-info">مدت: 1 ماه</div>
+    </div>
 
 
-<div class="plan" onclick="selectPlan('سرویس - 30 گیگ', 100000)">
-  <div class="plan-top">
-    <div class="plan-title">30 گیگ</div>
-    <div class="plan-price">100,000 تومان</div>
-  </div>
-  <div class="plan-info">مدت: 1 ماه</div>
-</div>
+    <div class="card">
+      <h2>♾️ حجمی</h2>
+      <p>
+        حجم مشخص با زمان استفاده نامحدود
+      </p>
+    </div>
 
+    <div class="plan" onclick="selectPlan('حجمی - 50 گیگ', 220000)">
+      <div class="plan-top">
+        <div class="plan-title">50 گیگ</div>
+        <div class="plan-price">220,000 تومان</div>
+      </div>
+      <div class="plan-info">زمان: نامحدود</div>
+    </div>
 
-<div class="plan" onclick="selectPlan('سرویس - 40 گیگ', 140000)">
-  <div class="plan-top">
-    <div class="plan-title">40 گیگ</div>
-    <div class="plan-price">140,000 تومان</div>
-  </div>
-  <div class="plan-info">مدت: 1 ماه</div>
-</div>
-
-
-<div class="plan" onclick="selectPlan('سرویس - 50 گیگ', 180000)">
-  <div class="plan-top">
-    <div class="plan-title">50 گیگ</div>
-    <div class="plan-price">180,000 تومان</div>
-  </div>
-  <div class="plan-info">مدت: 1 ماه</div>
-</div>
-
-
-<div class="plan" onclick="selectPlan('سرویس - 60 گیگ', 220000)">
-  <div class="plan-top">
-    <div class="plan-title">60 گیگ</div>
-    <div class="plan-price">220,000 تومان</div>
-  </div>
-  <div class="plan-info">مدت: 1 ماه</div>
-</div>
-
-
-<div class="plan" onclick="selectPlan('سرویس - نامحدود', 350000)">
-  <div class="plan-top">
-    <div class="plan-title">نامحدود</div>
-    <div class="plan-price">350,000 تومان</div>
-  </div>
-  <div class="plan-info">مدت: 1 ماه</div>
-</div>
-
-
-<div class="card">
-  <h2>♾️ حجمی</h2>
-  <p>
-    حجم مشخص با زمان استفاده نامحدود
-  </p>
-</div>
-
-
-<div class="plan" onclick="selectPlan('حجمی - 50 گیگ', 220000)">
-  <div class="plan-top">
-    <div class="plan-title">50 گیگ</div>
-    <div class="plan-price">220,000 تومان</div>
-  </div>
-  <div class="plan-info">زمان: نامحدود</div>
-</div>
-
-
-<div class="plan" onclick="selectPlan('حجمی - 60 گیگ', 280000)">
-  <div class="plan-top">
-    <div class="plan-title">60 گیگ</div>
-    <div class="plan-price">280,000 تومان</div>
-  </div>
-  <div class="plan-info">زمان: نامحدود</div>
-</div>
-```
+    <div class="plan" onclick="selectPlan('حجمی - 60 گیگ', 280000)">
+      <div class="plan-top">
+        <div class="plan-title">60 گیگ</div>
+        <div class="plan-price">280,000 تومان</div>
+      </div>
+      <div class="plan-info">زمان: نامحدود</div>
+    </div>
 
   </div>
 
-  <!-- ================= PAYMENT ================= -->
 
+  <!-- PAYMENT -->
   <div id="payment" class="screen">
 
-```
-<button class="back" onclick="showScreen('buy')">
-  ← بازگشت
-</button>
+    <button class="back" onclick="showScreen('buy')">
+      ← بازگشت
+    </button>
 
-<h2 class="section-title">💳 پرداخت</h2>
+    <h2 class="section-title">💳 پرداخت</h2>
 
+    <div class="payment-card">
 
-<div class="payment-card">
+      <div class="payment-icon">💳</div>
 
-  <div class="payment-icon">💳</div>
+      <h2>پرداخت کارت به کارت</h2>
 
-  <h2>پرداخت کارت به کارت</h2>
+      <div id="selectedPlan"></div>
 
-  <div id="selectedPlan"></div>
+      <div class="price-big" id="selectedPrice"></div>
 
-  <div class="price-big" id="selectedPrice"></div>
+      <div class="owner">
+        به نام: <b>امیدوار</b>
+      </div>
 
-  <div class="owner">
-    به نام: <b>امیدوار</b>
-  </div>
+      <div class="card-number">
+        6037 9972 5861 7217
+      </div>
 
-  <div class="card-number">
-    6037 9972 5861 7217
-  </div>
+      <button class="copy-btn" onclick="copyCard()">
+        📋 کپی شماره کارت
+      </button>
 
-  <button class="copy-btn" onclick="copyCard()">
-    📋 کپی شماره کارت
-  </button>
+    </div>
 
-</div>
+    <div class="warning">
+      ⚠️ لطفاً دقیقاً مبلغ نمایش داده شده را به شماره کارت بالا انتقال دهید.
+      <br>
+      سپس تصویر رسید پرداخت را برای ربات ارسال کنید.
+    </div>
 
+    <div class="success">
+      ✅ بعد از تأیید پرداخت توسط مدیریت، سرویس شما ساخته شده و اطلاعات آن برای شما ارسال می‌شود.
+    </div>
 
-<div class="warning">
-  ⚠️ لطفاً دقیقاً مبلغ نمایش داده شده را به شماره کارت بالا انتقال دهید.
-  <br>
-  سپس تصویر رسید پرداخت را برای ربات ارسال کنید.
-</div>
+    <button class="primary-btn" onclick="sendReceipt()">
+      📤 ارسال رسید به ربات
+    </button>
 
+    <button class="secondary-btn" onclick="showScreen('buy')">
+      انتخاب سرویس دیگر
+    </button>
 
-<div class="success">
-  ✅ بعد از تأیید پرداخت توسط مدیریت، سرویس شما ساخته شده و اطلاعات آن برای شما ارسال می‌شود.
-</div>
-
-
-<button class="primary-btn" onclick="sendReceipt()">
-  📤 ارسال رسید به ربات
-</button>
-
-
-<button class="secondary-btn" onclick="showScreen('buy')">
-  انتخاب سرویس دیگر
-</button>
-
-
-<p class="small">
-  ربات: @novavppnbot
-</p>
-```
+    <p class="small">
+      ربات: @novavppnbot
+    </p>
 
   </div>
 
-  <!-- ================= SERVICES ================= -->
 
+  <!-- SERVICES -->
   <div id="services" class="screen">
 
-```
-<button class="back" onclick="showScreen('home')">
-  ← بازگشت
-</button>
+    <button class="back" onclick="showScreen('home')">
+      ← بازگشت
+    </button>
 
-<h2 class="section-title">📦 سرویس‌های من</h2>
+    <h2 class="section-title">📦 سرویس‌های من</h2>
 
-
-<div class="card">
-
-  <div class="empty">
-
-    <div class="empty-icon">📦</div>
-
-    <div>
-      برای مشاهده سرویس‌های فعال، از ربات استفاده کنید.
+    <div class="card">
+      <div class="empty">
+        <div class="empty-icon">📦</div>
+        <div>
+          برای مشاهده سرویس‌های فعال، از ربات استفاده کنید.
+        </div>
+      </div>
     </div>
 
-  </div>
-
-</div>
-
-
-<button class="primary-btn" onclick="openBot()">
-  🤖 ورود به ربات
-</button>
-```
+    <button class="primary-btn" onclick="openBot()">
+      🤖 ورود به ربات
+    </button>
 
   </div>
 
-  <!-- ================= WALLET ================= -->
 
+  <!-- WALLET -->
   <div id="wallet" class="screen">
 
-```
-<button class="back" onclick="showScreen('home')">
-  ← بازگشت
-</button>
+    <button class="back" onclick="showScreen('home')">
+      ← بازگشت
+    </button>
 
-<h2 class="section-title">💰 کیف پول</h2>
+    <h2 class="section-title">💰 کیف پول</h2>
 
-
-<div class="card">
-
-  <div class="empty">
-
-    <div class="empty-icon">💰</div>
-
-    <div>
-      برای مشاهده موجودی کیف پول، وارد ربات شوید.
+    <div class="card">
+      <div class="empty">
+        <div class="empty-icon">💰</div>
+        <div>
+          برای مشاهده موجودی کیف پول، وارد ربات شوید.
+        </div>
+      </div>
     </div>
 
-  </div>
-
-</div>
-
-
-<button class="primary-btn" onclick="openBot()">
-  🤖 ورود به ربات
-</button>
-```
+    <button class="primary-btn" onclick="openBot()">
+      🤖 ورود به ربات
+    </button>
 
   </div>
 
-  <!-- ================= TEST ================= -->
 
+  <!-- TEST -->
   <div id="test" class="screen">
 
-```
-<button class="back" onclick="showScreen('home')">
-  ← بازگشت
-</button>
+    <button class="back" onclick="showScreen('home')">
+      ← بازگشت
+    </button>
 
-<h2 class="section-title">🔑 اکانت تست</h2>
+    <h2 class="section-title">🔑 اکانت تست</h2>
 
+    <div class="card">
 
-<div class="card">
+      <h2>اکانت تست رایگان</h2>
 
-  <h2>اکانت تست رایگان</h2>
+      <p>
+        برای دریافت اکانت تست و مشاهده کیفیت سرویس،
+        از طریق ربات اقدام کنید.
+      </p>
 
-  <p>
-    برای دریافت اکانت تست و مشاهده کیفیت سرویس،
-    از طریق ربات اقدام کنید.
-  </p>
+      <button class="primary-btn" onclick="openBot()">
+        دریافت اکانت تست
+      </button>
 
-  <button class="primary-btn" onclick="openBot()">
-    دریافت اکانت تست
-  </button>
-
-</div>
-```
-
-  </div>
-
-  <!-- ================= RENEW ================= -->
-
-  <div id="renew" class="screen">
-
-```
-<button class="back" onclick="showScreen('home')">
-  ← بازگشت
-</button>
-
-<h2 class="section-title">🔄 تمدید سرویس</h2>
-
-
-<div class="card">
-
-  <div class="empty">
-
-    <div class="empty-icon">🔄</div>
-
-    <div>
-      برای تمدید سرویس، سرویس مورد نظر خود را
-      از طریق ربات انتخاب کنید.
     </div>
 
   </div>
 
 
-  <button class="primary-btn" onclick="openBot()">
-    تمدید سرویس
-  </button>
+  <!-- RENEW -->
+  <div id="renew" class="screen">
 
-</div>
-```
+    <button class="back" onclick="showScreen('home')">
+      ← بازگشت
+    </button>
+
+    <h2 class="section-title">🔄 تمدید سرویس</h2>
+
+    <div class="card">
+
+      <div class="empty">
+
+        <div class="empty-icon">🔄</div>
+
+        <div>
+          برای تمدید سرویس، سرویس مورد نظر خود را
+          از طریق ربات انتخاب کنید.
+        </div>
+
+      </div>
+
+      <button class="primary-btn" onclick="openBot()">
+        تمدید سرویس
+      </button>
+
+    </div>
 
   </div>
 
-  <!-- ================= EDUCATION ================= -->
 
+  <!-- EDUCATION -->
   <div id="education" class="screen">
 
-```
-<button class="back" onclick="showScreen('home')">
-  ← بازگشت
-</button>
+    <button class="back" onclick="showScreen('home')">
+      ← بازگشت
+    </button>
 
-<h2 class="section-title">🎓 آموزش</h2>
+    <h2 class="section-title">🎓 آموزش</h2>
 
+    <div class="card">
 
-<div class="card">
+      <h2>📱 آموزش اتصال</h2>
 
-  <h2>📱 آموزش اتصال</h2>
+      <p>
+        برای دریافت آموزش نصب و اتصال سرویس،
+        وارد ربات شوید.
+      </p>
 
-  <p>
-    برای دریافت آموزش نصب و اتصال سرویس،
-    وارد ربات شوید.
-  </p>
+      <button class="primary-btn" onclick="openBot()">
+        مشاهده آموزش
+      </button>
 
-
-  <button class="primary-btn" onclick="openBot()">
-    مشاهده آموزش
-  </button>
-
-</div>
-```
+    </div>
 
   </div>
 
 </div>
+
 
 <script>
 
@@ -763,7 +695,6 @@
       ? window.Telegram.WebApp
       : null;
 
-
   if (tg) {
 
     tg.ready();
@@ -771,10 +702,8 @@
     tg.expand();
 
     try {
-
       tg.setHeaderColor("#0f172a");
       tg.setBackgroundColor("#0f172a");
-
     } catch (e) {}
 
   }
@@ -801,21 +730,14 @@
   function showScreen(screenId) {
 
     document.querySelectorAll(".screen").forEach(function(screen) {
-
       screen.classList.remove("active");
-
     });
-
 
     const target = document.getElementById(screenId);
 
-
     if (target) {
-
       target.classList.add("active");
-
       window.scrollTo(0, 0);
-
     }
 
   }
@@ -826,19 +748,15 @@
   function selectPlan(name, price) {
 
     selectedPlan = name;
-
     selectedPrice = price;
-
 
     document.getElementById("selectedPlan").innerHTML =
       "<p><b>سرویس انتخاب شده:</b><br>" +
       escapeHtml(name) +
       "</p>";
 
-
     document.getElementById("selectedPrice").innerText =
       formatPrice(price) + " تومان";
-
 
     showScreen("payment");
 
@@ -848,9 +766,7 @@
   /* ================= FORMAT PRICE ================= */
 
   function formatPrice(price) {
-
     return Number(price).toLocaleString("fa-IR");
-
   }
 
 
@@ -877,15 +793,11 @@
       navigator.clipboard.writeText(CARD_NUMBER)
 
         .then(function() {
-
           alert("شماره کارت کپی شد ✅");
-
         })
 
         .catch(function() {
-
           alert("شماره کارت: " + CARD_NUMBER);
-
         });
 
     } else {
@@ -903,25 +815,45 @@
 
     const url = "https://t.me/" + BOT_USERNAME;
 
-
     if (tg && tg.openTelegramLink) {
-
       tg.openTelegramLink(url);
-
     } else {
-
       window.open(url, "_blank");
-
     }
 
   }
 
 
-  /* ================= SEND RECEIPT ================= */
+  /* ================= SEND PAYMENT DATA ================= */
 
   function sendReceipt() {
 
-    openBot();
+    if (!selectedPlan || !selectedPrice) {
+      alert("ابتدا یک سرویس انتخاب کنید.");
+      return;
+    }
+
+    /*
+      اطلاعات خرید به ربات ارسال می‌شود.
+      ربات باید در سمت سرور این داده را دریافت کند.
+    */
+
+    const paymentData = {
+      action: "payment",
+      plan: selectedPlan,
+      price: selectedPrice,
+      currency: "IRR"
+    };
+
+    if (tg && tg.sendData) {
+
+      tg.sendData(JSON.stringify(paymentData));
+
+    } else {
+
+      alert("این قسمت باید داخل تلگرام اجرا شود.");
+
+    }
 
   }
 
@@ -929,9 +861,7 @@
   /* ================= SUPPORT ================= */
 
   function openSupport() {
-
     openBot();
-
   }
 
 
@@ -943,21 +873,15 @@
 
       tg.BackButton.show();
 
-
       tg.BackButton.onClick(function() {
 
         const activeScreen =
           document.querySelector(".screen.active");
 
-
         if (!activeScreen || activeScreen.id === "home") {
-
           tg.close();
-
         } else {
-
           showScreen("home");
-
         }
 
       });
@@ -970,3 +894,4 @@
 
 </body>
 </html>
+```
